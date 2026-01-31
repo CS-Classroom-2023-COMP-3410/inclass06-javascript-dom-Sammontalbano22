@@ -1,21 +1,3 @@
-// Initialize Deck
-let ShuffledDeck = createdeck();
-let finalDeck = ShuffledDeck[0];
-let cardBack = ShuffledDeck[1];
-let pairs = [];
-let matched = [];
-let score = 0;
-let strikes = 0;
-const maxStrikes = 8;
-const totalPairs = finalDeck.length / 2;
-
-// Helper to reset unmatched cards
-function resetUnmatchedCards() {
-  pairs.forEach((idx) => {
-    document.querySelector("#card-" + idx).innerHTML = cardBack;
-  });
-  pairs = [];
-}
 
 // DeckCreating Function
 const createdeck = function () {
@@ -100,6 +82,27 @@ const createdeck = function () {
   finalDeck = finalDeck.concat(finalDeck);
   return [finalDeck, cardBack];
 };
+
+// Initialize Deck
+let ShuffledDeck = createdeck();
+let finalDeck = ShuffledDeck[0];
+let cardBack = ShuffledDeck[1];
+let pairs = [];
+let matched = [];
+let score = 0;
+let strikes = 0;
+const maxStrikes = 8;
+const totalPairs = finalDeck.length / 2;
+
+// Helper to reset unmatched cards
+function resetUnmatchedCards() {
+  pairs.forEach((idx) => {
+    document.querySelector("#card-" + idx).innerHTML = cardBack;
+  });
+  pairs = [];
+}
+
+
 
 // Handle card click
 function handleClick(event) {
